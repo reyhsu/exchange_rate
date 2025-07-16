@@ -1,0 +1,10 @@
+services:
+  exchange_rate:
+    image: exchange_rate:v1
+    container_name: exchange_rate
+    restart: always
+    privileged: true
+    volumes:
+      - ./code.py:/code.py
+      # - /var/run/docker.sock:/var/run/docker.sock
+    command: ["/bin/bash", "-c", "while [ true ]; do sleep 1; done"]
